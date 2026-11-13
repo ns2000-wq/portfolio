@@ -107,6 +107,8 @@
     .card p { margin: 0; color: var(--muted); font-size: 15px; }
     .card .fact { display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 700; color: var(--warm); }
     .card img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; margin-bottom: 8px; }
+    .card .thumbs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+    .card .thumbs img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); display: block; height: auto; margin: 0; }
     .card .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
     .card .links a { font-size: 13px; font-weight: 600; text-decoration: none; color: var(--accent); border: 1px solid var(--accent); border-radius: 8px; padding: 4px 10px; }
     .card .links a:hover { background: var(--accent-soft); }
@@ -246,10 +248,13 @@
           <span class="fact">1st of 40 teams &middot; speed test</span>
         </div>
         <div class="card">
-          <!-- <img src="images/3d.jpg" alt="My 3D model"> -->
+          <div class="thumbs">
+            <img src="3d-pen.jpg" alt="3D model of a ballpoint pen in Blender, lit in a studio scene" loading="lazy">
+            <img src="3d-chair.jpg" alt="3D model of a wooden school chair with a metal frame in Blender" loading="lazy">
+          </div>
           <div class="icon">🧊</div>
           <h3>3D design club</h3>
-          <p>Two years of 3D modeling &mdash; learning to turn the ideas in my head into digital designs.</p>
+          <p>Two years of 3D modeling in Blender &mdash; learning to turn the ideas in my head into digital designs, like this pen and chair.</p>
           <span class="fact">2 years</span>
         </div>
         <div class="card">
