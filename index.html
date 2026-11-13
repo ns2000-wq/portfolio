@@ -1,0 +1,297 @@
+<!doctype html>
+<!--
+  ⚠️ 호윤에게: 이건 "초안"입니다. 영어 문장은 **네 말로** 다듬어.
+  공개 페이지이므로 전체 이름·학교 이름·주소·연락처·생년월일은 넣지 마.
+  사진을 넣을 때는 상장·자격증의 이름/학교/번호를 꼭 가려.
+  [바꿀 곳] 표시가 있는 주석을 찾아서 고치면 돼.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 검색엔진에 안 잡히게 (링크 받은 사람만 보도록) -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Hoyoon N. — Portfolio</title>
+  <meta name="description" content="Projects and activities of Hoyoon N., a student who likes building what he imagines.">
+  <style>
+    :root {
+      --bg: #fbfaf7;
+      --surface: #ffffff;
+      --text: #1d2228;
+      --muted: #5c6670;
+      --line: #e6e2da;
+      --accent: #1f6feb;
+      --accent-soft: #e8f0fd;
+      --warm: #c2571a;
+      --radius: 14px;
+      --maxw: 880px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14171b;
+        --surface: #1c2026;
+        --text: #e9ecef;
+        --muted: #a3acb6;
+        --line: #2c323a;
+        --accent: #6aa5ff;
+        --accent-soft: #1d2a3d;
+        --warm: #f0915a;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+    a { color: var(--accent); }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+    nav {
+      position: sticky; top: 0; z-index: 5;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav .wrap { display: flex; gap: 18px; align-items: center; height: 52px; overflow-x: auto; white-space: nowrap; }
+    nav .name { font-weight: 700; margin-right: auto; color: var(--text); text-decoration: none; }
+    nav a { text-decoration: none; color: var(--muted); font-size: 15px; }
+    nav a:hover { color: var(--accent); }
+
+    header.hero { padding: 64px 0 40px; }
+    .hero h1 { font-size: clamp(32px, 6vw, 48px); line-height: 1.15; margin: 0 0 12px; letter-spacing: -0.02em; }
+    .hero .tagline { font-size: clamp(19px, 3vw, 23px); color: var(--warm); font-weight: 600; margin: 0 0 16px; }
+    .hero p { color: var(--muted); max-width: 640px; margin: 0; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; padding: 0; list-style: none; }
+    .tags li { background: var(--accent-soft); color: var(--accent); border-radius: 999px; padding: 4px 12px; font-size: 14px; font-weight: 600; }
+
+    section { padding: 40px 0; border-top: 1px solid var(--line); }
+    h2 { font-size: 26px; margin: 0 0 6px; letter-spacing: -0.01em; }
+    .sub { color: var(--muted); margin: 0 0 22px; }
+
+    .video { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: #000; border: 1px solid var(--line); }
+    .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+    .project { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+    .project h3 { margin: 0 0 4px; font-size: 22px; }
+    .project .one-line { color: var(--muted); margin: 0 0 18px; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
+    .diagram { background: #fff; border-radius: 10px; border: 1px solid var(--line); padding: 10px; }
+    .diagram img { width: 100%; height: auto; display: block; }
+    .story h4 { margin: 0 0 2px; font-size: 15px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--warm); }
+    .story p { margin: 0 0 14px; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+    .btn { display: inline-block; padding: 9px 16px; border-radius: 10px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--accent); }
+    .btn.primary { background: var(--accent); color: #fff; }
+    .btn.ghost { color: var(--accent); }
+
+    .v1 { margin-top: 22px; padding-top: 18px; border-top: 1px dashed var(--line); }
+    .v1 h4 { margin: 0 0 10px; font-size: 15px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--warm); }
+    .v1-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .v1-photos figure { margin: 0; }
+    .v1-photos img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); display: block; }
+    .v1-photos figcaption { font-size: 14px; color: var(--muted); margin-top: 6px; }
+    .timeline { list-style: none; padding: 0; margin: 22px 0 0; border-left: 2px solid var(--line); }
+    .timeline li { position: relative; padding: 0 0 16px 20px; }
+    .timeline li::before { content: ""; position: absolute; left: -7px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
+    .timeline .when { font-weight: 700; margin-right: 6px; }
+
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+    .card .icon { font-size: 26px; line-height: 1; }
+    .card h3 { font-size: 17px; margin: 10px 0 6px; }
+    .card p { margin: 0; color: var(--muted); font-size: 15px; }
+    .card .fact { display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 700; color: var(--warm); }
+    .card img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; margin-bottom: 8px; }
+    .card .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .card .links a { font-size: 13px; font-weight: 600; text-decoration: none; color: var(--accent); border: 1px solid var(--accent); border-radius: 8px; padding: 4px 10px; }
+    .card .links a:hover { background: var(--accent-soft); }
+
+    .next { background: var(--accent-soft); border-radius: var(--radius); padding: 24px; }
+    .next p { margin: 0; }
+
+    footer { padding: 28px 0 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+
+    @media (max-width: 720px) {
+      body { font-size: 16px; }
+      .wrap { padding: 0 16px; }
+      header.hero { padding: 40px 0 28px; }
+      .grid2 { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: 1fr; }
+      nav .hide-sm { display: none; }
+    }
+    @media (min-width: 721px) and (max-width: 900px) {
+      .cards { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="name" href="#top">Hoyoon N.</a>
+    <a href="#video">Video</a>
+    <a href="#project">Project</a>
+    <a href="#more">More</a>
+    <a class="hide-sm" href="#next">Next</a>
+  </div>
+</nav>
+
+<main id="top">
+  <header class="hero">
+    <div class="wrap">
+      <!-- [바꿀 곳] 자기소개 문장 — 네 말로 -->
+      <h1>Hi, I'm Hoyoon.</h1>
+      <p class="tagline">I like building what I imagine.</p>
+      <p>I'm a student from Korea. When something small in my everyday life bothers me, I want to turn it into a system that works &mdash; with code, sensors, and a lot of trying again.</p>
+      <ul class="tags">
+        <li>Arduino</li><li>Drones</li><li>3D design</li><li>Sprinting</li><li>Writing</li>
+      </ul>
+    </div>
+  </header>
+
+  <section id="video">
+    <div class="wrap">
+      <h2>About me in 90 seconds</h2>
+      <!-- [바꿀 곳] 1~2분 소개 영상을 올리면 아래 src 의 영상 ID(_DTv-Z6ttsw)를 새 영상 ID로 바꾸고, 이 문장도 지워 -->
+      <p class="sub">For now, this is the demo of my elevator project. A short video about me is coming soon.</p>
+      <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/_DTv-Z6ttsw" title="Video" loading="lazy"
+          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="project">
+    <div class="wrap">
+      <h2>Main project</h2>
+      <p class="sub">The one I'm proudest of &mdash; because it almost didn't work.</p>
+
+      <article class="project">
+        <h3>🛗 Ghost-Free Elevator</h3>
+        <p class="one-line">An Arduino elevator that skips floors where the button was pressed but nobody is actually waiting.</p>
+
+        <div class="grid2">
+          <div class="story">
+            <h4>The problem</h4>
+            <p>On busy mornings, the elevator in my building stopped at floor after floor with no one there. My dad joked that a ghost must be riding it.</p>
+            <h4>My idea</h4>
+            <p>A motion sensor on each floor checks if a real person is waiting. Blue light: someone is there, stop. Red light: empty, pass.</p>
+            <h4>What was hard</h4>
+            <p>I had never coded before. I bought an Arduino kit and struggled just to understand it. It only worked after a teacher showed me how the board works and how to wire it.</p>
+            <h4>What I learned</h4>
+            <p>Having an idea is the easy part. Making it work takes patience, help, and a lot of starting over.</p>
+          </div>
+          <div>
+            <div class="diagram">
+              <img src="https://raw.githubusercontent.com/ns2000-wq/ghost-free-elevator/main/state-diagram.svg" alt="State diagram: yellow = floor requested, blue = person detected, stop; red = no one, pass">
+            </div>
+            <ol class="timeline">
+              <li><span class="when">2023 &middot; 6th grade</span>v1 &mdash; a concept model. Put a doll on a floor and the light turns on: someone is waiting. Entered in the district student science &amp; invention fair.</li>
+              <li><span class="when">Apr 2024</span>v2 &mdash; learned Arduino, then coded and wired a working version. Silver prize at the same fair.</li>
+              <li><span class="when">May 2024</span>Gold prize (1st of 9 teams), school invention contest.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="v1">
+          <h4>v1 &middot; my first model (6th grade)</h4>
+          <div class="v1-photos">
+            <figure>
+              <img src="elevator-v1-light-on.jpg" alt="First model of the Ghost-Free Elevator: a toy elephant waits on a floor and the ceiling light is on" loading="lazy">
+              <figcaption>A &ldquo;passenger&rdquo; is waiting &rarr; the light turns on &rarr; stop.</figcaption>
+            </figure>
+            <figure>
+              <img src="elevator-v1-model.jpg" alt="The three-floor elevator model with a yellow elevator car in the shaft" loading="lazy">
+              <figcaption>The three-floor model and the yellow elevator car.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <a class="btn primary" href="https://github.com/ns2000-wq/ghost-free-elevator" target="_blank" rel="noopener">See the code on GitHub</a>
+          <a class="btn ghost" href="https://youtu.be/_DTv-Z6ttsw" target="_blank" rel="noopener">Watch v2 demo</a>
+          <a class="btn ghost" href="https://youtube.com/shorts/XuUL18aT7E4" target="_blank" rel="noopener">Watch v1 (6th grade)</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="more">
+    <div class="wrap">
+      <h2>Other things I do</h2>
+      <p class="sub">Building, flying, running, and writing.</p>
+      <div class="cards">
+        <!-- [바꿀 곳] 사진을 넣으려면 images/ 폴더에 올리고, 각 카드의 주석을 풀어:  <img src="images/drone.jpg" alt="..."> -->
+        <div class="card">
+          <!-- <img src="images/drone.jpg" alt="Me flying a drone"> -->
+          <div class="icon">🛸</div>
+          <h3>Drone piloting</h3>
+          <p>I got into drones through FPV flight videos and taught myself to fly. When an extended battery pushed my drone's total weight over 250 g, I completed Korea's official Class 4 pilot training (KOTSA) to fly it legally &mdash; and I fly only where I have permits from the aviation and defense authorities.</p>
+          <span class="fact">Class 4 training &middot; 2025</span>
+          <div class="links">
+            <a href="https://youtu.be/s4uqIVst2Ps" target="_blank" rel="noopener">&#9654; Watch flight 1</a>
+            <a href="https://youtu.be/fkubjQ28-yM" target="_blank" rel="noopener">&#9654; Watch flight 2</a>
+          </div>
+        </div>
+        <div class="card">
+          <!-- <img src="images/car.jpg" alt="Model car I built"> -->
+          <div class="icon">🏎️</div>
+          <h3>Design challenge</h3>
+          <p>In technology class I designed and built a model car and its powertrain from workshop materials.</p>
+          <span class="fact">1st of 40 teams &middot; speed test</span>
+        </div>
+        <div class="card">
+          <!-- <img src="images/3d.jpg" alt="My 3D model"> -->
+          <div class="icon">🧊</div>
+          <h3>3D design club</h3>
+          <p>Two years of 3D modeling &mdash; learning to turn the ideas in my head into digital designs.</p>
+          <span class="fact">2 years</span>
+        </div>
+        <div class="card">
+          <!-- <img src="images/track.jpg" alt="Running the 200m"> -->
+          <div class="icon">🏃</div>
+          <h3>Sprinting</h3>
+          <p>I've been a sprinter since elementary school &mdash; I anchored my class relay in 6th grade. In middle school I became school 200m champion two years in a row, and got faster: 28.38s &rarr; 27.00s. Also 3rd in the 1000m.</p>
+          <span class="fact">200m 1st &middot; 2025, 2026</span>
+          <div class="links">
+            <a href="https://youtu.be/FwAqNal7Lg0" target="_blank" rel="noopener">&#9654; Watch relay (age 12)</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="icon">✍️</div>
+          <h3>Writing</h3>
+          <p>Bronze in my school's prose-writing contest, and placed in a Korean poetry recitation contest.</p>
+          <span class="fact">2026</span>
+        </div>
+        <div class="card">
+          <div class="icon">🤝</div>
+          <h3>Class president</h3>
+          <p>Elected class president; led an anti-bullying campaign and represented my classmates at the school council.</p>
+          <span class="fact">Leadership</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="next">
+    <div class="wrap">
+      <h2>What I want to build next</h2>
+      <!-- [바꿀 곳] 에세이 ⑤단락과 같은 톤으로, 네가 진짜 해보고 싶은 것 -->
+      <div class="next">
+        <p>I want to bring together the things I like &mdash; <strong>drones and AI</strong>. For example, drone footage analyzed by a model to find objects or map a path. The elevator taught me that I like turning everyday annoyances into systems, and I want to keep doing that with bigger tools.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Built by Hoyoon N. &middot; 2026</div>
+</footer>
+
+</body>
+</html>
